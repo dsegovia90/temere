@@ -1,0 +1,11 @@
+{
+  "name": "random_team_generator",
+  "version": "1.0.0",
+  "description": "Random Team Generator",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel S. & Team",
+  "license": "ISC"
+}
