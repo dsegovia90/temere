@@ -24,6 +24,7 @@ module.exports = function(app){
 	app.post('/temere', function(req, res){
 		randomAdj = capitalize(adjectives[getRandomInt(0,adjectives.length - 1)])
 		randomNoun = capitalize(nouns[getRandomInt(0,nouns.length - 1)])
+		randomNoun += 's'
 
 		var slackResponse = {}
 		slackResponse.response_type = 'in_channel'
