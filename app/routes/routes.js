@@ -17,10 +17,12 @@ function capitalize(string){
 
 module.exports = function(app){
 
+	app.get('/install', function(req, res){
+		//here goes the code for the oAuth, we need to plug in a database tough, to save tokens
+	})
+
 	app.post('/temere', function(req, res){
 		randomAdj = capitalize(adjectives[getRandomInt(0,adjectives.length - 1)])
-
-
 		randomNoun = capitalize(nouns[getRandomInt(0,nouns.length - 1)])
 
 		var slackResponse = {}
