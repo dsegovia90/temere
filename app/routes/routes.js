@@ -33,7 +33,7 @@ module.exports = function(app){
 
 		var slackResponse = {}
 		slackResponse.response_type = 'in_channel'
-		slackResponse.text = `Hello ${res.body.user_name}! This is your random name: *${randomAdj} ${randomNoun}*`
+		slackResponse.text = `Hello ${req.body.user_name}! This is your random name: *${randomAdj} ${randomNoun}*`
 		res.type('application/json').json(slackResponse).end()
 	})
 
