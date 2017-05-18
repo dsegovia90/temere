@@ -8,6 +8,9 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
+var mongoose = require('mongoose')
+mongoose.Promise = require('bluebird')
+mongoose.connect(process.env.MONGO_URI)
 
 
 routes(app)
