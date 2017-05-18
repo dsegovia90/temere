@@ -29,9 +29,11 @@ module.exports = function(app){
 		randomAdj = capitalize(adjectives[getRandomInt(0,adjectives.length - 1)])
 		randomNoun = capitalize(nouns[getRandomInt(0,nouns.length - 1)])
 
+
+
 		var slackResponse = {}
 		slackResponse.response_type = 'in_channel'
-		slackResponse.text = 'Hello rhinos! This is your random name: *' + randomAdj + ' ' + randomNoun + '*'
+		slackResponse.text = `Hello ${res.user_name}! This is your random name: *${randomAdj} ${randomNoun}*`
 		res.type('application/json').json(slackResponse).end()
 	})
 
