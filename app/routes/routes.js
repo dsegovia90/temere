@@ -17,8 +17,12 @@ function capitalize(string){
 
 module.exports = function(app){
 
+	app.get('/', function(req, res){
+		res.end('Hello world!')
+	})
+
 	app.get('/install', function(req, res){
-		//here goes the code for the oAuth, we need to plug in a database tough, to save tokens
+		
 	})
 
 	app.post('/temere', function(req, res){
