@@ -2,6 +2,8 @@ var express = require('express')
 var app = express()
 require('dotenv').load()
 
+var session = require('express-session')
+
 var routes = require('./app/routes/routes.js')
 
 var bodyParser = require('body-parser')
