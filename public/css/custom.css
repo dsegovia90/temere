@@ -20,6 +20,11 @@ p {
   font-size: 1em;
 }
 
+.alert {
+  margin-bottom: 0;
+  color: black;
+}
+
 /* Footer Info */
 .footer {
   position: absolute;
