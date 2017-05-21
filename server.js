@@ -16,6 +16,12 @@ app.set('view engine', 'pug')
 app.set('views', './app/views')
 app.use(express.static('./public'))
 
+app.use(session({
+	secret: 'secret',
+	resave: false,
+	saveUninitialized: true
+}))
+
 app.use(require('flash')())
 
 routes(app)
