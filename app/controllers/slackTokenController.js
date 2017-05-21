@@ -18,7 +18,7 @@ function SlackTokenHandler(){
 			tokenPromise.then(function(token){
 				if(token){
 					console.log('Team already installed app.')
-					res.redirect('https://www.google.com')
+					res.redirect('https://temerebot.herokuapp.com/')
 				}else{
 					var newToken = new Token()
 					newToken.access_token = data.access_token
@@ -28,7 +28,7 @@ function SlackTokenHandler(){
 					newToken.team_id = data.team_id
 					newToken.bot = data.bot
 					newToken.save()
-					res.redirect('https://www.google.com')
+					res.redirect('https://temerebot.herokuapp.com/')
 				}
 			})
 		})

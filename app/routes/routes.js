@@ -21,7 +21,7 @@ function capitalize(string){
 module.exports = function(app){
 
 	app.get('/', function(req, res){
-		res.end('Hello world!')
+		res.render('index')
 	})
 
 	app.get('/install', slackTokenHandler.storeToken)

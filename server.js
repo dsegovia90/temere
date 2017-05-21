@@ -12,6 +12,9 @@ var mongoose = require('mongoose')
 mongoose.Promise = require('bluebird')
 mongoose.connect(process.env.MONGO_URI)
 
+app.set('view engine', 'pug')
+app.set('views', './app/views')
+app.use(express.static('./public'))
 
 routes(app)
 
