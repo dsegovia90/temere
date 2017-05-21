@@ -22,7 +22,7 @@ p {
 
 .alert {
   margin-bottom: 0;
-  color: black;
+  color: black !important;
 }
 
 /* Footer Info */
