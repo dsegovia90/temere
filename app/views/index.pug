@@ -34,11 +34,11 @@ html
 		)
 	body
 		while message = flash.shift()
-			-var alert = 'alert alert-dismissible fade show alert-' + message.type
+			-var alert = 'alert alert-dismissible alert-' + message.type
 			div(role='alert' class=alert)
 				button(type='button' class='close' data-dismiss='alert')
 					span(aria-hidden='true') &times;
-				p=	message.message
+				message.message
 		nav.navbar.navbar-default.navbar-top
 			.container
 				.row
