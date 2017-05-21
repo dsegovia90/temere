@@ -18,6 +18,7 @@ function SlackTokenHandler(){
 			tokenPromise.then(function(token){
 				if(token){
 					console.log('Team already installed app.')
+					req.flash('info', 'You have already installed Temere in that slack team!')
 					res.redirect('https://temerebot.herokuapp.com/')
 				}else{
 					var newToken = new Token()
@@ -28,6 +29,7 @@ function SlackTokenHandler(){
 					newToken.team_id = data.team_id
 					newToken.bot = data.bot
 					newToken.save()
+					req.flash('success', 'Successfully installed Temere! Thank you!')
 					res.redirect('https://temerebot.herokuapp.com/')
 				}
 			})

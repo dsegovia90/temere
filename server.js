@@ -16,6 +16,8 @@ app.set('view engine', 'pug')
 app.set('views', './app/views')
 app.use(express.static('./public'))
 
+app.use(require('flash')())
+
 routes(app)
 
 var port = process.env.PORT || 3000
