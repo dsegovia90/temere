@@ -27,12 +27,17 @@ module.exports = function(app){
 	app.get('/install', slackTokenHandler.storeToken)
 
 	app.post('/temere', function(req, res){
-		randomAdj = capitalize(adjectives[getRandomInt(0,adjectives.length - 1)])
-		randomNoun = capitalize(nouns[getRandomInt(0,nouns.length - 1)])
+		var randomAdj = capitalize(adjectives[getRandomInt(0,adjectives.length - 1)])
+		var randomNoun = capitalize(nouns[getRandomInt(0,nouns.length - 1)])
+		var combination = randomAdj + ' ' + randomNoun
 
 		var slackResponse = {}
 		slackResponse.response_type = 'in_channel'
-		slackResponse.text = `Hello ${req.body.user_name}! Your random name is: *${randomAdj} ${randomNoun}*`
+		if(req.body.user_name){
+			slackResponse.text = `Hello ${req.body.user_name}! Your random name is: *${combination}*`
+		}else{
+			slackResponse.text = combination
+		}
 		res.type('application/json').json(slackResponse).end()
 	})
 
