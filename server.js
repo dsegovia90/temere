@@ -1,34 +1,37 @@
-var express = require('express')
-var app = express()
-require('dotenv').load()
+const express = require('express');
 
-var session = require('express-session')
+const app = express();
+require('dotenv').load();
 
-var routes = require('./app/routes/routes.js')
+const session = require('express-session');
 
-var bodyParser = require('body-parser')
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
+const routes = require('./app/routes/routes.js');
 
-var mongoose = require('mongoose')
-mongoose.Promise = require('bluebird')
-mongoose.connect(process.env.MONGO_URI)
+const bodyParser = require('body-parser');
 
-app.set('view engine', 'pug')
-app.set('views', './app/views')
-app.use(express.static('./public'))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+
+mongoose.connect(process.env.MONGO_URI);
+
+app.set('view engine', 'pug');
+app.set('views', './app/views');
+app.use(express.static('./public'));
 
 app.use(session({
-	secret: 'secret',
-	resave: false,
-	saveUninitialized: true
-}))
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: true,
+}));
 
-app.use(require('flash')())
+app.use(require('flash')());
 
-routes(app)
+routes(app);
 
-var port = process.env.PORT || 3000
-app.listen(port, function(){
-	console.log('Node.js listening on port 3000...')
-})
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log('Node.js listening on port 3000...');
+});

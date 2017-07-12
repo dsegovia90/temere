@@ -1,13 +1,14 @@
-var mongoose = require('mongoose')
-var Schema = mongoose.Schema
+const mongoose = require('mongoose');
 
-var Token = new Schema({
-	access_token: String,
-	scope: String,
-	user_id: String,
-	team_name: String,
-	team_id: String,
-	bot: Object
-})
+const Schema = mongoose.Schema;
 
-module.exports = mongoose.model('Token', Token)
+const Token = new Schema({
+  access_token: String,
+  scope: String,
+  user_id: String,
+  team_name: String,
+  team_id: String,
+  bot: Object,
+});
+
+module.exports = mongoose.model('Token', Token);
