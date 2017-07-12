@@ -20,9 +20,22 @@ p {
   font-size: 1em;
 }
 
+nav h1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .alert {
   margin-bottom: 0;
   color: black !important;
+}
+
+#info-div {
+  padding-bottom: 30px;
+}
+
+#random-name-field {
+  margin-bottom: 15px;
 }
 
 /* Footer Info */
