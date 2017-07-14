@@ -13,13 +13,19 @@ function SlackTokenHandler() {
       if (err) {
         console.error(err);
       }
-      console.log(data);
       const tokenPromise = Token.findOne({ access_token: data.access_token }).exec();
       tokenPromise.then((token) => {
         if (token) {
           console.log('Team already installed app.');
+          token.access_token = data.access_token;
+          token.scope = data.scope;
+          token.user_id = data.user_id;
+          token.team_name = data.team_name;
+          token.team_id = data.team_id;
+          token.bot = data.bot;
+          token.save();
           req.flash('info', 'You have already installed Temere in that slack team!');
-          res.redirect('https://temerebot.herokuapp.com/');
+          res.redirect(process.env.REDIRECT_URI);
         } else {
           const newToken = new Token();
           newToken.access_token = data.access_token;
@@ -30,7 +36,7 @@ function SlackTokenHandler() {
           newToken.bot = data.bot;
           newToken.save();
           req.flash('success', 'Successfully installed Temere! Thank you!');
-          res.redirect('https://temerebot.herokuapp.com/');
+          res.redirect(process.env.REDIRECT_URI);
         }
       });
     });
