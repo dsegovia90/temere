@@ -37,5 +37,4 @@ function SlackTokenHandler() {
   };
 }
 
-module.exports = SlackTokenHandler
-  ;
+module.exports = SlackTokenHandler;
