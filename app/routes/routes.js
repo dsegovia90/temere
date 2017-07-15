@@ -24,6 +24,14 @@ module.exports = function routesFunc(app) {
     res.render('index');
   });
 
+  app.get('/privacy', (req, res) => {
+    res.render('privacy')
+  })
+  
+  app.get('/support', (req, res) => {
+    res.render('support')
+  })
+
   app.get('/install', slackTokenHandler.storeToken);
 
   app.post('/temere', (req, res) => {

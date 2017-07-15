@@ -64,3 +64,10 @@ a:hover {
   color: black;
   text-decoration: none;
 }
+
+
+#privacy {
+ display: flex;
+ align-items: center;
+ justify-content: center; 
+}
