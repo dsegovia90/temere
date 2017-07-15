@@ -13,7 +13,7 @@ function SlackTokenHandler() {
       if (err) {
         console.error(err);
       }
-      const tokenPromise = Token.findOne({ access_token: data.access_token }).exec();
+      const tokenPromise = Token.findOne({ team_id: data.team_id }).exec();
       tokenPromise.then((token) => {
         if (token) {
           console.log('Team already installed app.');
