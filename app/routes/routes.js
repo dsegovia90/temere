@@ -43,7 +43,7 @@ module.exports = function routesFunc(app) {
     console.log(req.body);
     slackResponse.response_type = 'in_channel';
     if (req.body.user_name) {
-      slackResponse.text = `Hello ${req.body.user_name}! Your random name is: *${combination}*`;
+      slackResponse.text = `Hello <@${req.body.user_id}>! Your random name is: *${combination}*`;
     } else {
       slackResponse.text = combination;
     }
