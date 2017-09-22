@@ -25,12 +25,12 @@ module.exports = function routesFunc(app) {
   });
 
   app.get('/privacy', (req, res) => {
-    res.render('privacy')
-  })
-  
+    res.render('privacy');
+  });
+
   app.get('/support', (req, res) => {
-    res.render('support')
-  })
+    res.render('support');
+  });
 
   app.get('/install', slackTokenHandler.storeToken);
 
@@ -40,6 +40,7 @@ module.exports = function routesFunc(app) {
     const combination = `${randomAdj} ${randomNoun}`;
 
     const slackResponse = {};
+    console.log(req.body);
     slackResponse.response_type = 'in_channel';
     if (req.body.user_name) {
       slackResponse.text = `Hello ${req.body.user_name}! Your random name is: *${combination}*`;
